@@ -10,8 +10,7 @@ int isPrime ( int n );
 int main ( void ){
     int i;
     using namespace std;
-    cout <<"2 ";
-    for ( i = 3; i < totalNum; i+=2){
+    for ( i = 1; i < totalNum; i++){
         if ( isPrime(i)){
             cout << i <<" ";
         }
@@ -20,14 +19,16 @@ int main ( void ){
     return 0;
 }
 
-int isPrime( int n){
+int isPrime( int n ){
     int i;
     int flag = 1;
-    for( i = 2; i <= sqrt(n); i++){
+    if ( n == 1 || n % 2 == 0) flag = 0;
+    for( i = 3; i <= sqrt(n); i+=2){
         if( n % i == 0){
             flag = 0;
             break;
         }
     }
+    if ( n == 2 ) flag = 1;
     return flag;
 }
